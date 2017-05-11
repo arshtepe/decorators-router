@@ -1,11 +1,11 @@
 {
   "name": "decorators-router",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
-  "main": "dist/router",
+  "main": "index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel -w src/ -d ./ -s",
+    "build": "babel -w src/ -d ./dist -s",
     "watch": "babel -w src/ -d ./ -s --watch"
   },
   "repository": {
