@@ -1,10 +1,23 @@
-import path from "path";
-import RequestWrapper from "../wrappers/RequestWrapper";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _path = require("path");
+
+var _path2 = _interopRequireDefault(_path);
+
+var _RequestWrapper = require("../wrappers/RequestWrapper");
+
+var _RequestWrapper2 = _interopRequireDefault(_RequestWrapper);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const _buildHandlers = Symbol();
 const _handlers = Symbol();
 
-export default class Controller {
+class Controller {
     constructor(WrapClass, rootPath = "/") {
         this[_buildHandlers](WrapClass, rootPath);
     }
@@ -20,7 +33,7 @@ export default class Controller {
 
         keys.forEach(key => {
             let wrap = wrapClass[key].__requestWrapper;
-            if (!(wrap instanceof RequestWrapper)) {
+            if (!(wrap instanceof _RequestWrapper2.default)) {
                 return;
             }
 
@@ -33,4 +46,5 @@ export default class Controller {
         return this[_handlers];
     }
 }
+exports.default = Controller;
 //# sourceMappingURL=Controller.js.map

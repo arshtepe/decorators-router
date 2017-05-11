@@ -1,4 +1,15 @@
-import path from "path";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _path = require("path");
+
+var _path2 = _interopRequireDefault(_path);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 const _params = Symbol();
 const _callback = Symbol();
 
@@ -12,14 +23,14 @@ const wrapCallback = function (callback) {
     };
 };
 
-export default class {
+exports.default = class {
     constructor(params, callback) {
         this[_params] = params;
         this[_callback] = wrapCallback(callback);
     }
 
     setRootPath(rootPath) {
-        this[_params].value = this[_params].value.map(value => path.join(rootPath, value));
+        this[_params].value = this[_params].value.map(value => _path2.default.join(rootPath, value));
     }
 
     get path() {
@@ -34,5 +45,5 @@ export default class {
         return this[_callback];
     }
 
-}
+};
 //# sourceMappingURL=RequestWrapper.js.map
