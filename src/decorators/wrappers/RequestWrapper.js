@@ -3,8 +3,8 @@ const _params = Symbol();
 const _callback = Symbol();
 
 const wrapCallback = function (callback) {
-    return async function (ctx, next) {
-        const body = await callback(ctx, ctx.request.query);
+    return async function (ctx) {
+        const body = await callback(ctx, ctx.request.body);//TODO add bodyParser
 
         if(body !== undefined) {
             ctx.body = body;
