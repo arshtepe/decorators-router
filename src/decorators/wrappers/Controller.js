@@ -1,4 +1,3 @@
-import path from "path";
 import RequestWrapper from "../wrappers/RequestWrapper";
 
 const _buildHandlers = Symbol();

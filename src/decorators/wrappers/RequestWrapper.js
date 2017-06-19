@@ -1,4 +1,4 @@
-import path from "path";
+const url = require("url");
 const _params = Symbol();
 const _callback = Symbol();
 
@@ -20,7 +20,7 @@ export default class {
     }
 
     setRootPath(rootPath) {
-        this[_params].value = this[_params].value.map(value => path.join(rootPath, value));
+        this[_params].value = this[_params].value.map(value => url.resolve(rootPath, value));
     }
 
 
