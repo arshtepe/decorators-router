@@ -3,19 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-var _path = require("path");
-
-var _path2 = _interopRequireDefault(_path);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+const url = require("url");
 const _params = Symbol();
 const _callback = Symbol();
 
 const wrapCallback = function (callback) {
-    return async function (ctx, next) {
-        const body = await callback(ctx, ctx.request.query);
+    return async function (ctx) {
+        const body = await callback(ctx, ctx.request.body); //TODO add bodyParser
 
         if (body !== undefined) {
             ctx.body = body;
@@ -30,7 +24,7 @@ exports.default = class {
     }
 
     setRootPath(rootPath) {
-        this[_params].value = this[_params].value.map(value => _path2.default.join(rootPath, value));
+        this[_params].value = this[_params].value.map(value => url.resolve(rootPath, value));
     }
 
     get path() {

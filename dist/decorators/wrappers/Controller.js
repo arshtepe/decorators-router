@@ -4,10 +4,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _path = require("path");
-
-var _path2 = _interopRequireDefault(_path);
-
 var _RequestWrapper = require("../wrappers/RequestWrapper");
 
 var _RequestWrapper2 = _interopRequireDefault(_RequestWrapper);
